@@ -1,6 +1,17 @@
 import java.util.Scanner;
 
+/**
+ * Classe onde o jogo é executado.
+ * O jogador tenta adivinhar um número secreto entre 1 e 100.
+ * No final o placar com a pontuação é exibido.
+ */
 public class Main {
+
+    /**
+     * Método principal que inicia o jogo.
+     *
+     * @param args Argumentos da linha de comando (não utilizados).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Placar placar = new Placar();
@@ -11,6 +22,8 @@ public class Main {
         Jogo jogo = new Jogo(jogador);
 
         boolean acertou = false;
+
+        // Loop principal do jogo
         while (!acertou) {
             System.out.println("Digite um número entre 1 e 100:");
             int tentativa = scanner.nextInt();
@@ -32,6 +45,7 @@ public class Main {
             }
         }
 
+        // Adiciona o jogador ao placar e exibe o ranking
         placar.adicionarJogador(jogador);
         placar.mostrarRanking();
         scanner.close();
